@@ -1,15 +1,17 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+//import { RouterLink, RouterView } from 'vue-router'
+import MenuBar from '@/components/MenuBar.vue'
+
 </script>
 
 <template>
   <header>
+    <div class="container">
 
-    <div class="wrapper">
-
-      <nav>
+<!--      <nav>
         <RouterLink to="/">Home</RouterLink>
-      </nav>
+      </nav>-->
+      <MenuBar/>
     </div>
   </header>
 
@@ -17,4 +19,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 </style>
