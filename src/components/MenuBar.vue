@@ -1,27 +1,29 @@
 <template>
   <div class="card">
-    <Menubar :model="items">
+    <Menubar :model="items" class="menu">
+      <template #start>
+        <Img id="logo" src="src/assets/logobranca.png" alt="Logo"/>
+      </template>
       <template #item="{ item, props }">
-        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-          <a v-ripple :href="href" v-bind="props.action" @click="navigate">
-            <span :class="item.icon" />
+        <router-link v-if="item.route" :to="item.route" custom>
+          <a style="color: #F9FBF8" class="flex align-items-center" v-bind="props.action">
             <span class="ml-2">{{ item.label }}</span>
           </a>
         </router-link>
-        <a class="menu-items" v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
-          <span :class="item.icon" />
-          <span class="ml-2">{{ item.label }}</span>
-        </a>
       </template>
+      <!--      <template #end>
+              <div class="flex align-items-center gap-2">
+                <InputText placeholder="Search" type="text" class="w-8rem sm:w-auto" />
+                <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+              </div>
+            </template>-->
     </Menubar>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-//import { useRouter } from 'vue-router';
-
-//const router = useRouter();
+import { ref } from 'vue'
+import '../assets/user.css'
 
 const items = ref([
   {
@@ -40,43 +42,21 @@ const items = ref([
     label: 'Extrato',
     route: '/extrato'
   }
-
-  /*  {
-    label: 'Router',
-    icon: 'pi pi-palette',
-    items: [
-      {
-        label: 'Styled',
-        route: '/theming'
-      },
-      {
-        label: 'Unstyled',
-        route: '/unstyled'
-      }
-    ]
-  },
-  {
-    label: 'Programmatic',
-    icon: 'pi pi-link',
-    command: () => {
-      router.push('/introduction');
-    }
-  },
-  {
-    label: 'External',
-    icon: 'pi pi-home',
-    items: [
-      {
-        label: 'Vue.js',
-        url: 'https://vuejs.org/'
-      },
-      {
-        label: 'Vite.js',
-        url: 'https://vuejs.org/'
-      }
-    ]
-  }*/
-]);
-defineExpose({ items });
+])
+defineExpose({ items })
 </script>
+<style>
+#logo {
+  width: 11.1rem;
+  height: 2.79rem;
+  margin-right: 3rem;
+}
+.menu{
+  background-color: #163100;
+  color: #F9FBF8;
+  padding-top: 45px;
+  padding-left: 54px;
+  padding-bottom: 38px;
+}
+</style>
 
