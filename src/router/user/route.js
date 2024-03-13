@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/user/HomeView.vue'
+import HomeView from '../../views/user/HomeView.vue'
 import Profile from '@/views/user/ProfileView.vue'
 
 const router = createRouter({
@@ -9,12 +9,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },{
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: Profile
-    },
+    }
   ]
 })
-
 export default router
