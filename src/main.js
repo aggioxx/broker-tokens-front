@@ -6,7 +6,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
-import router from './router/route.js'
+import router from './router/user/route.js'
 
 import 'primevue/resources/themes/mdc-light-indigo/theme.css'
 import 'primeicons/primeicons.css'

@@ -1,14 +1,13 @@
 <script setup>
-import MenuBar from '../../components/MenuBar.vue'
-
-/*import Carousel from '../../components/Carousel.vue';*/
+import MenuBar from '../../components/user/MenuBar.vue'
+/*import Carousel from '../../components/user/Carousel.vue'*/
 //import Header from '../../components/Header.vue';
 </script>
 <template>
   <main>
     <div>
       <MenuBar />
-      <!--        <Carousel/>-->
+<!--      <Carousel />-->
       <!--        <Header/>-->
     </div>
   </main>
