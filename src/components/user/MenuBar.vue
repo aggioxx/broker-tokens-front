@@ -6,7 +6,7 @@
       </template>
       <template #item="{ item, props }">
         <router-link v-if="item.route" :to="item.route" custom>
-          <a style="color: #f9fbf8" class="flex align-items-center" v-bind="props.action">
+          <a style="color: #f9fbf8" class="flex align-items-center label-items" v-bind="props.action">
             <span class="ml-2">{{ item.label }}</span>
           </a>
         </router-link>
@@ -59,6 +59,18 @@ defineExpose({ items })
   padding-top: 2.8125rem;
   padding-left: 3.375rem;
   padding-bottom: 2.375rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labels {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.label-items {
+  margin-right: 1rem;
 }
 
 .p-avatar-text {

@@ -5,10 +5,17 @@ import Marquee from '../../components/user/Marquee.vue'
 </script>
 <template>
   <main>
-    <div>
+    <div  class="container">
       <MenuBar />
       <Marquee />
       <!--        <Header/>-->
     </div>
   </main>
 </template>
+
+<style>
+.container {
+  padding: 0;
+  margin: 0;
+}
+</style>

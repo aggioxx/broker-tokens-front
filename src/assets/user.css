@@ -1,20 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
-
-.rectangle {
-  position: absolute;
-  width: 90rem; /* 1440px / 16px */
-  height: 21.25rem; /* 340px / 16px */
-  left: 0rem; /* 0px / 16px */
-  top: 0rem; /* 0px / 16px */
-  background: #163100;
-  display: flex;
-  flex-direction: column;
-}
-
 * {
   font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
