@@ -63,12 +63,6 @@ defineExpose({ items })
   justify-content: space-between;
 }
 
-.labels {
-  display: flex;
-  justify-content: flex-start;
-}
-
-
 .label-items {
   margin-right: 1rem;
 }

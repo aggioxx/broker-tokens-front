@@ -1,7 +1,7 @@
 <script setup>
 import MenuBar from '../../components/user/MenuBar.vue'
 /*import Carousel from '../../components/Marquee.vue';*/
-//import Header from '../../components/Header.vue';
+//import Header from '../../components/MenuHeader.vue';
 </script>
 <template>
   <main>
