@@ -9,7 +9,7 @@ import 'primeicons/primeicons.css'
     <div class="container">
       <MenuBar />
       <Marquee />
-      <MenuHeader label="Meu Perfil" icon="pi pi-apple"/>
+      <MenuHeader label="Meu Perfil" icon="mdi mdi-account"/>
     </div>
   </main>
 </template>

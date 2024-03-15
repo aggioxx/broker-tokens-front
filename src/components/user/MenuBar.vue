@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <Menubar :model="items" class="menu">
+    <Menubar :model="pages" class="menu">
       <template #start>
         <Img id="logo" src="/logobranca.png" alt="Logo" />
       </template>
@@ -13,8 +13,10 @@
       </template>
       <template #end>
         <div class="flex align-items-center gap-2">
-          <InputText placeholder="Search" type="text" class="w-8rem sm:w-auto" />
-          <Avatar class="p-avatar-text p-avatar-circle" label="P" size="xlarge" shape="circle" />
+          <div class="avatar-container" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu">
+            <Avatar class="p-avatar-text p-avatar-circle avatar-front" label="P" size="xlarge" shape="circle" />
+            <Menu class="dropdown-menu" ref="menu" id="overlay_menu" :model="menuItems" :popup="true" />
+          </div>
         </div>
       </template>
     </Menubar>
@@ -25,8 +27,10 @@
 import { ref } from 'vue'
 import '../../assets/user.css'
 import Avatar from 'primevue/avatar'
+import Menu from 'primevue/menu'
+import '@mdi/font/css/materialdesignicons.min.css'
 
-const items = ref([
+const pages = ref([
   {
     label: 'Inicio',
     route: '/inicio'
@@ -44,8 +48,39 @@ const items = ref([
     route: '/extrato'
   }
 ])
-defineExpose({ items })
+
+const menu = ref(false)
+const menuItems = ref([
+  {
+    items: [
+      {
+        label: 'Meu Perfil',
+        icon: 'mdi mdi-account'
+      },
+      {
+        label: 'Conta Bancária',
+        icon: 'mdi mdi-bank'
+      },
+      {
+        label: 'Alterar Senha',
+        icon: 'mdi mdi-lock-outline'
+      },
+      {
+        label: 'Sair',
+        icon: 'mdi mdi-logout'
+      }
+    ]
+  }
+])
+
+const toggle = (event) => {
+  menu.value.toggle(event)
+}
+
+defineExpose({ pages, menuItems, toggle })
 </script>
+
+
 <style>
 #logo {
   width: 11.1rem;
@@ -76,5 +111,18 @@ defineExpose({ items })
 .p-avatar-circle {
   background-color: #f9fbf8;
   margin-right: 1.5rem;
+}
+
+.dropdown-menu {
+  position: relative;
+  width: max-content;
+  height: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 11.9px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px 20px 15px;
 }
 </style>
