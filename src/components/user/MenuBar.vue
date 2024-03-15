@@ -5,7 +5,7 @@
         <Img id="logo" src="/logobranca.png" alt="Logo" />
       </template>
       <template #item="{ item, props }">
-        <router-link v-if="item.route" :to="item.route" custom>
+        <router-link v-if="item.route" :to="item.route">
           <a style="color: #f9fbf8" class="flex align-items-center label-items" v-bind="props.action">
             <span class="ml-2">{{ item.label }}</span>
           </a>
@@ -33,19 +33,19 @@ import '@mdi/font/css/materialdesignicons.min.css'
 const pages = ref([
   {
     label: 'Inicio',
-    route: '/inicio'
+    route: '/'
   },
   {
     label: 'Compra',
-    route: '/compra'
+    route: '/comprar'
   },
   {
     label: 'Venda',
-    route: '/venda'
+    route: '/vender'
   },
   {
     label: 'Extrato',
-    route: '/extrato'
+    route: '/conta'
   }
 ])
 

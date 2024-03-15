@@ -1,6 +1,6 @@
 <script setup>
 import MenuBar from '../../components/user/MenuBar.vue'
-import Marquee from '../../components/user/Marquee.vue'
+import Marquee from '../../components/user/MenuMarquee.vue'
 import MenuHeader from '../../components/user/MenuHeader.vue'
 import 'primeicons/primeicons.css'
 </script>
@@ -9,7 +9,7 @@ import 'primeicons/primeicons.css'
     <div class="container">
       <MenuBar />
       <Marquee />
-      <MenuHeader label="Meu Perfil" icon="mdi mdi-account"/>
+      <MenuHeader label=""/>
     </div>
   </main>
 </template>

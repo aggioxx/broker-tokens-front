@@ -9,7 +9,7 @@ import 'primeicons/primeicons.css'
     <div class="container">
       <MenuBar />
       <Marquee />
-      <MenuHeader label="Meu Perfil" icon="mdi mdi-account"/>
+      <MenuHeader label="Conta bancária" icon="mdi mdi-bank"/>
     </div>
   </main>
 </template>
