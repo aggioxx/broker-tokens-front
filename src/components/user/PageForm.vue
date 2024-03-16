@@ -1,165 +1,85 @@
 <template>
-  <div class="frame-436">
-    <div class="frame-485">
-      <form class="frame-535">
-        <div class="frame-233">
-          <div class="frame-223">
-            <label class="selecione">Selecione</label>
-            <span class="token">Token</span>
-          </div>
-        </div>
-        <div class="frame-485">
-          <div class="frame-223">
-            <label class="r$">R$</label>
-            <span class="0,00">0,00</span>
-            <label class="valor">Valor</label>
-          </div>
-        </div>
-        <div class="frame-486">
-          <div class="frame-223">
-            <label class="digite">Digite</label>
-            <label class="senha">Senha</label>
-          </div>
-        </div>
-        <div class="component-8">
-          <button class="frame-7 entrar">Entrar</button>
-        </div>
-      </form>
+  <div class="form-container">
+    <label class="input-label">Token</label>
+    <select class="input-field">
+      <option value="" disabled selected>Selecione</option>
+      <option value="1">Bitcoin</option>
+      <option value="2">Ethereum</option>
+      <option value="3">Litecoin</option>
+      <option value="4">Ripple</option>
+    </select>
+    <label class="input-label">Valor</label>
+    <div class="input-wrapper">
+      <label class="dollar-label">R$</label>
+      <input type="number" class="input-field" placeholder="0,00" step="0.01">
     </div>
+    <label class="input-label">Senha</label>
+    <input type="password" class="input-field" placeholder="Digite sua senha">
+    <button class="button">Comprar</button>
   </div>
 </template>
 
-<style scoped>
-.frame-436 {
+<style>
+.form-container {
   box-sizing: border-box;
+  width: 25.25rem;
+  height: 29.4375rem;
+  border: 0.125rem solid #214A00;
+  border-radius: 1.25rem;
   position: absolute;
-  width: 404px;
-  height: 471px;
-  left: calc(50% - 404px/2 + 1px);
-  top: calc(50% - 471px/2 + 132.5px);
-  border: 2px solid #214A00;
-  border-radius: 20px;
-}
-
-.frame-485 {
-  position: absolute;
-  width: 294px;
-  height: 376px;
-  left: 54px;
-  top: 52px;
-}
-
-.frame-535 {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 18px;
-  position: absolute;
-  width: 294px;
-  height: 276px;
-  left: calc(50% - 294px/2);
-  top: calc(50% - 276px/2 - 49px);
-}
-
-.frame-233, .frame-485, .frame-486 {
-  width: 294px;
-  height: 80px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.frame-223 {
-  position: absolute;
-  width: 293px;
-  height: 55px;
-  left: 1px;
-  top: 25px;
-  background: #F9FBF8;
-  box-shadow: -2px 6px 23px rgba(145, 145, 145, 0.15);
-  border-radius: 20px;
-}
-
-.selecione, .r$, .digite {
-  position: absolute;
-  width: 87px;
-  height: 22px;
-  left: 17.69px;
-  top: calc(50% - 22px/2 - 0.5px);
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 121.9%;
-  color: #000000;
-  opacity: 0.5;
-}
-
-.vector-28 {
-  position: absolute;
-  width: 14.7px;
-  height: 8px;
-  left: calc(50% - 14.7px/2 + 120.85px);
-  top: calc(50% - 8px/2 + 0.5px);
-  border: 2px solid #193800;
-}
-
-.token, .valor, .senha {
-  position: absolute;
-  width: 45px;
-  height: 20px;
-  left: 0px;
-  top: 0px;
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 121.9%;
-  color: #221D21;
-}
-
-.component-8 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-  position: absolute;
-  width: 293px;
-  height: 48px;
-  left: 1px;
-  top: 317px;
-}
-
-.frame-7 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  padding: 18px 30px;
-  gap: 7.5px;
-  width: 293px;
-  height: 48px;
-  background: #214A00;
-  border: 4px solid #214A00;
-  box-shadow: 7px 8px 21px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  justify-content: center;
 }
 
-.entrar {
-  width: 91px;
-  height: 24px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+.input-label {
+  margin-left: 3.5rem;
+  margin-bottom: 0.625rem;
+  align-self: flex-start;
+  font-weight: 900;
+}
+
+.input-field {
+  width: 18.375rem;
+  height: 3.4375rem;
+  background: #F9FBF8;
+  box-shadow: -0.125rem 0.375rem 1.4375rem rgba(145, 145, 145, 0.15);
+  border-radius: 1.25rem;
+  margin-bottom: 1.25rem;
+  align-self: center;
+  padding: 0.625rem 0.625rem 0.625rem 1.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dollar-label {
+  position: absolute;
+  left: 0.625rem;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button {
+  width: 18.3125rem;
+  height: 3rem;
+  background: #214A00;
+  border: 0.25rem solid #214A00;
+  box-shadow: 0.4375rem 0.5rem 1.3125rem rgba(0, 0, 0, 0.15);
+  border-radius: 1.25rem;
   color: #F9FBF8;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-align: center;
+  padding: 0.75rem 0;
 }
 </style>
