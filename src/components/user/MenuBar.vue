@@ -1,12 +1,12 @@
 <template>
   <div class="card">
-    <Menubar :model="pages" class="menu">
+    <Menubar :model="pages" class="menu-menubar-component">
       <template #start>
-        <Img id="logo" src="/logobranca.png" alt="Logo" />
+        <Img id="logo-menubar" src="/logobranca.png" alt="Logo" />
       </template>
       <template #item="{ item, props }">
         <router-link v-if="item.route" :to="item.route">
-          <a style="color: #f9fbf8" class="flex align-items-center label-items" v-bind="props.action">
+          <a style="color: #f9fbf8" class="flex align-items-center label-items-menu-bar" v-bind="props.action">
             <span class="ml-2">{{ item.label }}</span>
           </a>
         </router-link>
@@ -82,23 +82,24 @@ defineExpose({ pages, menuItems, toggle })
 
 
 <style>
-#logo {
+#logo-menubar {
   width: 11.1rem;
   height: 2.79rem;
   margin-right: 3rem;
 }
 
-.menu {
+.menu-menubar-component {
   background-color: #163100;
   color: #f9fbf8;
   padding-top: 2.8125rem;
   padding-left: 3.375rem;
   padding-bottom: 2.375rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.label-items {
+.label-items-menu-bar {
   margin-right: 1rem;
 }
 

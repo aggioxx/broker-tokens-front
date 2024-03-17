@@ -11,13 +11,28 @@
     <label class="input-label">Valor</label>
     <div class="input-wrapper">
       <label class="dollar-label">R$</label>
-      <input type="number" class="input-field" placeholder="0,00" step="0.01">
+      <input type="text" class="input-field input-dollar-field" placeholder="0,00" v-model="value" @input="validateInput">
     </div>
     <label class="input-label">Senha</label>
     <input type="password" class="input-field" placeholder="Digite sua senha">
     <button class="button">Comprar</button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      value: ''
+    }
+  },
+  methods: {
+    validateInput() {
+      this.value = this.value.replace(/[^0-9,]/g, '').replace(/(,.*),/g, '$1');
+    }
+  }
+}
+</script>
 
 <style>
 .form-container {
@@ -34,6 +49,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .input-label {
@@ -54,18 +71,31 @@
   padding: 0.625rem 0.625rem 0.625rem 1.5rem;
 }
 
+.input-dollar-field{
+  text-align: right;
+}
+
 .input-wrapper {
   display: flex;
   align-items: center;
   position: relative;
+  height: 3.4375rem;
 }
 
 .dollar-label {
   position: absolute;
-  left: 0.625rem;
+  top: 10%;
+  left: 1rem;
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  pointer-events: none;
+  user-select: none;
   z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .button {
