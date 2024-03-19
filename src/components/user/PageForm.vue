@@ -9,9 +9,11 @@
       <option value="4">Ripple</option>
     </select>
     <label class="input-label">Valor</label>
-    <div class="input-wrapper">
-      <label class="dollar-label">R$</label>
-      <input type="text" class="input-field input-dollar-field" placeholder="0,00" v-model="value" @input="validateInput">
+    <div class="card flex flex-wrap justify-content-center gap-3">
+      <IconField iconPosition="left">
+        <label class="input-field-dollar">R$</label>
+        <InputText class="input-field input-field-text" v-model="value1" placeholder="0,00" @input="validateInput"/>
+      </IconField>
     </div>
     <label class="input-label">Senha</label>
     <input type="password" class="input-field" placeholder="Digite sua senha">
@@ -20,7 +22,22 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import IconField from 'primevue/iconfield';
+import InputText from 'primevue/inputtext';
+
 export default {
+  components: {
+    IconField,
+    InputText
+  },
+  setup() {
+    const value1 = ref(null);
+
+    return {
+      value1,
+    };
+  },
   data() {
     return {
       value: ''
@@ -53,6 +70,25 @@ export default {
   max-height: 100vh;
 }
 
+.input-field-dollar {
+  position: absolute;
+  top: 20%;
+  left: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.input-field-text {
+  text-align: right;
+}
+
 .input-label {
   margin-left: 3.5rem;
   margin-bottom: 0.625rem;
@@ -69,33 +105,6 @@ export default {
   margin-bottom: 1.25rem;
   align-self: center;
   padding: 0.625rem 0.625rem 0.625rem 1.5rem;
-}
-
-.input-dollar-field{
-  text-align: right;
-}
-
-.input-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 3.4375rem;
-}
-
-.dollar-label {
-  position: absolute;
-  top: 10%;
-  left: 1rem;
-  font-weight: 900;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
 }
 
 .button {

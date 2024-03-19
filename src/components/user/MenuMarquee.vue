@@ -11,7 +11,7 @@
       <div v-for="(item, index) in items" :key="index" class="item-container">
         <img class="item-image" :src="item.image" alt="Item image" />
         <span class="key-value">
-          {{ item.key }} {{ item.value }}
+          {{ item.key }} R${{ item.value }}
         </span>
         <component :is="item.icon.tag" :class="item.isPositive ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></component>
       </div>
@@ -113,6 +113,8 @@ export default {
   color: #f9fbf8;
   font-size: 16px;
   padding: 10px;
+  outline: 2px solid #5a5a5a;
+  position: relative;
 }
 
 .item-image {

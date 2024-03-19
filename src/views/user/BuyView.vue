@@ -12,7 +12,7 @@ import PageForm from '@/components/user/PageForm.vue'
       <MenuMarquee />
       <MenuHeader label="Comprar"/>
     </div>
-    <div class="page-form-container">
+    <div class="page-form-container-buy-view">
     <PageForm class="page-form"/>
     </div>
   </main>
@@ -34,7 +34,7 @@ import PageForm from '@/components/user/PageForm.vue'
 
 }
 
-.page-form-container {
+.page-form-container-buy-view {
   flex: 1;
   overflow-y: auto;
 }
