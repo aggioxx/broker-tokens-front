@@ -1,51 +1,69 @@
 <template>
   <div class="form-container">
-    <label class="input-label">Token</label>
-    <select class="input-field">
-      <option value="" disabled selected>Selecione</option>
-      <option value="1">Bitcoin</option>
-      <option value="2">Ethereum</option>
-      <option value="3">Litecoin</option>
-      <option value="4">Ripple</option>
-    </select>
-    <label class="input-label">Valor</label>
-    <div class="card flex flex-wrap justify-content-center gap-3">
-      <IconField iconPosition="left">
-        <label class="input-field-dollar">R$</label>
-        <InputText class="input-field input-field-text" v-model="value1" placeholder="0,00" @input="validateInput"/>
-      </IconField>
+    <div class="card flex justify-content-center input-field">
+      <FloatLabel class="w-full md:w-14rem">
+        <Dropdown v-model="selectedCoin" :options="coins" optionLabel="name" class="input-field" />
+        <label for="dd-coin">Token</label>
+      </FloatLabel>
     </div>
-    <label class="input-label">Senha</label>
-    <input type="password" class="input-field" placeholder="Digite sua senha">
+    <div class="card flex flex-wrap justify-content-center gap-3">
+      <FloatLabel>
+        <div class="flex-auto">
+          <InputNumber class="input-field" v-model="value2" inputId="currency-germany" mode="currency" currency="BRL" locale="pt-BR" />
+          <label for="number-input">Number</label>
+        </div>
+      </FloatLabel>
+    </div>
+    <div class="card flex justify-content-center">
+      <FloatLabel>
+        <Password v-model="value" inputId="password" class="input-field" placeholder="Digite sua senha" toggleMask
+                  promptLabel="Choose a password" weakLabel="Senha fraca" mediumLabel="Senha media"
+                  strongLabel="Senha Forte" />
+        <label for="password">Senha</label>
+      </FloatLabel>
+    </div>
     <button class="button">Comprar</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import IconField from 'primevue/iconfield';
-import InputText from 'primevue/inputtext';
+import { ref } from 'vue'
+import InputNumber from 'primevue/inputnumber'
+import Password from 'primevue/password'
+import Dropdown from 'primevue/dropdown'
+import FloatLabel from 'primevue/floatlabel'
 
 export default {
   components: {
-    IconField,
-    InputText
+    InputNumber,
+    Password,
+    Dropdown,
+    FloatLabel
   },
   setup() {
-    const value1 = ref(null);
+    const selectedCoin = ref()
+    const coins = ref([
+      { name: 'Bitcoin' },
+      { name: 'BitBroker' },
+      { name: 'Ethereum' },
+      { name: 'Dogecoin' }
+    ])
 
+    const selectOpt = ref([
+      { key: '1', label: 'Bitcoin' },
+      { key: '2', label: 'Ethereum' },
+      { key: '3', label: 'Litecoin' },
+      { key: '4', label: 'Ripple' }
+    ])
+    const value = ref(null)
+
+    const numberInput = ref(null)
     return {
-      value1,
-    };
-  },
-  data() {
-    return {
-      value: ''
-    }
-  },
-  methods: {
-    validateInput() {
-      this.value = this.value.replace(/[^0-9,]/g, '').replace(/(,.*),/g, '$1');
+      numberInput,
+      selectOpt,
+      selectedCoin,
+      coins,
+      value
     }
   }
 }
@@ -68,32 +86,6 @@ export default {
   justify-content: center;
   overflow-y: auto;
   max-height: 100vh;
-}
-
-.input-field-dollar {
-  position: absolute;
-  top: 20%;
-  left: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
-
-.input-field-text {
-  text-align: right;
-}
-
-.input-label {
-  margin-left: 3.5rem;
-  margin-bottom: 0.625rem;
-  align-self: flex-start;
-  font-weight: 900;
 }
 
 .input-field {
