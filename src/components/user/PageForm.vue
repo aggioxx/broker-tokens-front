@@ -1,25 +1,24 @@
 <template>
   <div class="form-container">
-    <div class="card flex justify-content-center input-field">
+    <div class="card flex justify-content-center">
       <FloatLabel class="w-full md:w-14rem">
-        <Dropdown v-model="selectedCoin" :options="coins" optionLabel="name" class="input-field" />
+        <Dropdown v-model="selectedCoin" :options="coins" optionLabel="name" class="input-field p-dropdown-item" />
         <label for="dd-coin">Token</label>
       </FloatLabel>
     </div>
     <div class="card flex flex-wrap justify-content-center gap-3">
       <FloatLabel>
-        <div class="flex-auto">
-          <InputNumber class="input-field" v-model="value2" inputId="currency-germany" mode="currency" currency="BRL" locale="pt-BR" />
-          <label for="number-input">Number</label>
-        </div>
+        <InputNumber class="input-field" v-model="value" inputId="currency-brl" mode="currency" currency="BRL" locale="pt-BR" />
+        <label for="currency-brl">Valor</label>
       </FloatLabel>
     </div>
     <div class="card flex justify-content-center">
       <FloatLabel>
-        <Password v-model="value" inputId="password" class="input-field" placeholder="Digite sua senha" toggleMask
-                  promptLabel="Choose a password" weakLabel="Senha fraca" mediumLabel="Senha media"
+        <Password v-model="value" inputId="password" class="input-field"
+                  placeholder="Digite sua senha" toggleMask
+                  promptLabel="Digite uma senha" weakLabel="Senha fraca" mediumLabel="Senha media"
                   strongLabel="Senha Forte" />
-        <label for="password">Senha</label>
+          <label for="password" class="FloatLabel">Senha</label>
       </FloatLabel>
     </div>
     <button class="button">Comprar</button>
@@ -49,18 +48,9 @@ export default {
       { name: 'Dogecoin' }
     ])
 
-    const selectOpt = ref([
-      { key: '1', label: 'Bitcoin' },
-      { key: '2', label: 'Ethereum' },
-      { key: '3', label: 'Litecoin' },
-      { key: '4', label: 'Ripple' }
-    ])
     const value = ref(null)
 
-    const numberInput = ref(null)
     return {
-      numberInput,
-      selectOpt,
       selectedCoin,
       coins,
       value
@@ -97,6 +87,7 @@ export default {
   margin-bottom: 1.25rem;
   align-self: center;
   padding: 0.625rem 0.625rem 0.625rem 1.5rem;
+  outline: none;
 }
 
 .button {
@@ -112,5 +103,19 @@ export default {
   line-height: 1.5rem;
   text-align: center;
   padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.input-field .p-dropdown-item {
+  text-align: center;
+}
+
+.FloatLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>
